@@ -1,0 +1,38 @@
+# LLM Configuration
+fast_llm_provider: openai   # Options: 'openai', 'google', 'anthropic'
+long_context_llm_provider: openai
+
+# Text-to-Speech Configuration
+tts_provider: google  # Options: 'google', 'elevenlabs'
+
+tts_settings:
+  elevenlabs:
+    voice_mapping:
+      Interviewer: Chris
+      Interviewee: Charlie
+    model: eleven_multilingual_v2
+  google:
+    voice_mapping:
+      Interviewer: en-US-Journey-F
+      Interviewee: en-US-Journey-D
+    language_code: en-US
+    effects_profile_id: small-bluetooth-speaker-class-device
+
+# Audio output settings
+output_format: mp3  # Options: 'mp3', 'wav'
+
+# Directory paths
+temp_audio_dir: ./.temp_audio
+output_dir: ./output
+checkpoint_dir : ./.checkpoints
+
+# Rate limiting settings
+rate_limits:
+  elevenlabs:
+    requests_per_minute: 20
+    max_retries: 10
+    base_delay: 2.0
+  google:
+    requests_per_minute: 20
+    max_retries: 10
+    base_delay: 2.0
