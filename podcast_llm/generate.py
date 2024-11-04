@@ -1,3 +1,33 @@
+"""
+Podcast generation module.
+
+This module provides functionality to generate complete podcast episodes from a given topic.
+It handles the end-to-end process including research, script writing, and audio generation.
+
+Example:
+    >>> from podcast_llm.generate import generate
+    >>> generate(
+    ...     topic='Artificial Intelligence',
+    ...     qa_rounds=3,
+    ...     use_checkpoints=True,
+    ...     audio_output='podcast.mp3',
+    ...     text_output='script.md',
+    ...     config='config.yaml',
+    ...     debug=True
+    ... )
+
+The generation process includes:
+- Background research on the topic
+- Outlining the episode structure 
+- Writing draft and final scripts
+- Converting the script to audio using text-to-speech
+- Saving outputs to specified locations
+
+The process can be checkpointed to allow for resuming interrupted generations.
+Debug logging provides detailed information about the generation process.
+"""
+
+
 import os
 import argparse
 from pathlib import Path
@@ -18,12 +48,11 @@ from podcast_llm.utils.checkpointer import (
 from podcast_llm.text_to_speech import generate_audio
 from podcast_llm.config import PodcastConfig, setup_logging
 from podcast_llm.utils.text import generate_markdown_script
+import logging
 
 
 PACKAGE_ROOT = Path(__file__).parent
 DEFAULT_CONFIG_PATH = os.path.join(PACKAGE_ROOT, 'config', 'config.yaml')
-
-setup_logging()
 
 
 def generate(
@@ -32,8 +61,25 @@ def generate(
     use_checkpoints: bool,
     audio_output: str | None,
     text_output: str | None,
-    config: str
+    config: str,
+    debug: bool
 ) -> None:
+    """
+    Generate a podcast episode.
+    
+    Args:
+        topic: Topic of the podcast
+        qa_rounds: Number of Q&A rounds
+        use_checkpoints: Whether to use checkpointing
+        audio_output: Path to save audio output
+        text_output: Path to save text output
+        config: Path to config file
+        debug: Whether to enable debug logging
+    """
+    # Set logging level based on debug flag
+    log_level = logging.DEBUG if debug else logging.INFO
+    setup_logging(log_level)
+    
     config = PodcastConfig.load(yaml_path=config)
 
     checkpointer = Checkpointer(
@@ -94,6 +140,11 @@ def parse_arguments() -> argparse.Namespace:
         default=DEFAULT_CONFIG_PATH,
         help='Path to YAML config file'
     )
+    parser.add_argument(
+        '--debug',
+        action='store_true',
+        help='Enable debug logging'
+    )
     return parser.parse_args()
 
 def main() -> None:
@@ -104,7 +155,8 @@ def main() -> None:
         use_checkpoints=args.checkpoint,
         audio_output=args.audio_output,
         text_output=args.text_output,
-        config=args.config
+        config=args.config,
+        debug=args.debug
     )
 
 
