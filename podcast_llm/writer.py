@@ -410,13 +410,13 @@ def write_final_script(config: PodcastConfig, topic: str, draft_script: list, ba
     # Add intro line
     final_script.insert(0, {
         'speaker': 'Interviewer',
-        'text': f"Welcome to Evan's automatic podcast. Today we've invited an expert to talk about {topic}"
+        'text': config.intro.format(topic=topic, podcast_name=config.podcast_name)
     })
 
     # Add outro line
     final_script.append({
         'speaker': 'Interviewer',
-        'text': "That's all for today. Thank you for listening to Evan's automatic podcast. See you next time when we'll talk about whatever you want."
+        'text': config.outro.format(topic=topic, podcast_name=config.podcast_name)
     })
         
     return final_script
