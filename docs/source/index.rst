@@ -8,6 +8,7 @@ Welcome to Podcast LLM's documentation!
    installation
    usage
    configuration
+   license
 
 .. toctree::
    :maxdepth: 2

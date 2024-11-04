@@ -11,6 +11,18 @@ An intelligent system that automatically generates engaging podcast conversation
 - Checkpoint system to save progress and resume generation
 - Configurable voices and audio settings
 
+## Examples
+
+Listen to sample podcasts generated using Podcast-LLM:
+
+### Robotic Process Automation (Google voices)
+
+[![Play Podcast Sample](https://img.shields.io/badge/Play%20RPA%20Podcast-brightgreen?style=for-the-badge&logo=soundcloud)](https://soundcloud.com/evan-dempsey-153309617/robotic-process-automation-google-voices)
+
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" 
+    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1949173903&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false">
+</iframe>
+
 ## Installation
 
 1. Clone the repository:
@@ -56,6 +68,23 @@ An intelligent system that automatically generates engaging podcast conversation
    ```
 
 3. Customize voices and other settings in `config/config.yaml`
+
+## License
+
+This project is licensed under Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+
+This means you are free to:
+- Share: Copy and redistribute the material in any medium or format
+- Adapt: Remix, transform, and build upon the material
+
+Under the following terms:
+- Attribution: You must give appropriate credit, provide a link to the license, and indicate if changes were made
+- NonCommercial: You may not use the material for commercial purposes
+- No additional restrictions: You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits
+
+For commercial use, please contact evandempsey@gmail.com to obtain a commercial license.
+
+The full license text can be found at: https://creativecommons.org/licenses/by-nc/4.0/legalcode
 
 ## Acknowledgements
 
