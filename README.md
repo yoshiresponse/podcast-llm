@@ -17,11 +17,8 @@ Listen to sample podcasts generated using Podcast-LLM:
 
 ### Robotic Process Automation (Google voices)
 
-[![Play Podcast Sample](https://img.shields.io/badge/Play%20RPA%20Podcast-brightgreen?style=for-the-badge&logo=soundcloud)](https://soundcloud.com/evan-dempsey-153309617/robotic-process-automation-google-voices)
+[![Play Podcast Sample](https://img.shields.io/badge/Play%20Podcast-brightgreen?style=for-the-badge&logo=soundcloud)](https://soundcloud.com/evan-dempsey-153309617/robotic-process-automation-google-voices)
 
-<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" 
-    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1949173903&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false">
-</iframe>
 
 ## Installation
 
