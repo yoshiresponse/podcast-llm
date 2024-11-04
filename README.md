@@ -2,6 +2,8 @@
 
 An intelligent system that automatically generates engaging podcast conversations using LLMs and text-to-speech technology.
 
+[View Documentation](https://evandempsey.github.io/podcast-llm/)
+
 ## Features
 
 - Automated research and content gathering using Tavily search
@@ -14,6 +16,10 @@ An intelligent system that automatically generates engaging podcast conversation
 ## Examples
 
 Listen to sample podcasts generated using Podcast-LLM:
+
+### UFO Crash Retrieval (Elevenlabs voices)
+
+[![Play Podcast Sample](https://img.shields.io/badge/Play%20Podcast-brightgreen?style=for-the-badge&logo=soundcloud)](https://soundcloud.com/evan-dempsey-153309617/ufo-crash-retrieval-elevenlabs-voices)
 
 ### Robotic Process Automation (Google voices)
 
@@ -61,7 +67,7 @@ Listen to sample podcasts generated using Podcast-LLM:
    python -m podcast_llm.generate "Quantum Computing" --audio-output podcast.mp3
 
    # Generate Markdown output
-   python -m podcast_llm.generate "Quantum Computing" --text-output podcast.md
+   python -m podcast_llm.generate "Machine Learning" --text-output podcast.md
    ```
 
 3. Customize voices and other settings in `config/config.yaml`
