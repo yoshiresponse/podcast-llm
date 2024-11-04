@@ -1,6 +1,6 @@
 # LLM Configuration
-fast_llm_provider: openai   # Options: 'openai', 'google', 'anthropic'
-long_context_llm_provider: openai
+fast_llm_provider: google   # Options: 'openai', 'google', 'anthropic'
+long_context_llm_provider: google
 
 # Text-to-Speech Configuration
 tts_provider: google  # Options: 'google', 'elevenlabs'
@@ -36,3 +36,17 @@ rate_limits:
     requests_per_minute: 20
     max_retries: 10
     base_delay: 2.0
+
+
+# Content settings
+podcast_name: Podcast LLM
+
+# Available variables: podcast_name, topic 
+intro: "Welcome to {podcast_name}. Today we've invited an expert to talk about {topic}." 
+outro: "That's all for today. Thank you for listening to {podcast_name}. See you next time when we'll talk about whatever you want."
+
+# Episode structure
+episode_structure:
+  - Episode Introduction (with subsections)
+  - Main Discussion Topics (with subsections)
+  - Conclusion (with subsections)

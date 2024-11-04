@@ -1,3 +1,28 @@
+"""
+Research module for podcast generation.
+
+This module provides functionality to gather background research and information
+for podcast episode generation. It handles retrieving content from various sources
+like Wikipedia and search engines.
+
+Example:
+    >>> from podcast_llm.research import suggest_wikipedia_articles
+    >>> config = PodcastConfig()
+    >>> articles = suggest_wikipedia_articles(config, "Artificial Intelligence")
+    >>> print(articles.pages[0].name)
+    'Artificial intelligence'
+
+The research process includes:
+- Suggesting relevant Wikipedia articles
+- Performing targeted web searches
+- Extracting key information from sources
+- Organizing research into a structured format
+
+The module uses various APIs and services to gather comprehensive background
+information while maintaining rate limits and handling errors gracefully.
+"""
+
+
 import os
 import logging
 from typing import List

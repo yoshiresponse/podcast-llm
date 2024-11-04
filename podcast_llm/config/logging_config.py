@@ -1,15 +1,34 @@
+"""
+Logging configuration module for the podcast generation system.
+
+This module provides standardized logging setup across the application.
+It configures a consistent log format and allows for dynamic log level setting.
+
+Example:
+    >>> from podcast_llm.config.logging_config import setup_logging
+    >>> setup_logging(logging.DEBUG)  # Set debug level logging
+    >>> logger = logging.getLogger(__name__)
+    >>> logger.debug('Debug message')
+    2024-01-01 12:00:00 - DEBUG - Debug message
+
+The logging format includes:
+- Timestamp in YYYY-MM-DD HH:MM:SS format
+- Log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+- Message content
+"""
+
 import logging
 import sys
+from typing import Optional
 
-def setup_logging():
+
+def setup_logging(log_level: Optional[int] = None) -> None:
     """
     Set up standardized logging configuration for the podcast generation system.
 
-    Configures a root logger with consistent formatting and stdout output. Handles:
-    - Removing any existing handlers to prevent duplicate logs
-    - Setting up a StreamHandler to output to stdout
-    - Configuring timestamp-based formatting for log messages
-    - Setting the default log level to INFO
+    Args:
+        log_level: Optional logging level to set. If None, defaults to INFO.
+            Use logging.DEBUG for debug output.
 
     The format for log messages is:
     YYYY-MM-DD HH:MM:SS - LEVEL - MESSAGE
@@ -28,4 +47,4 @@ def setup_logging():
     
     # Set up root logger
     root_logger.addHandler(handler)
-    root_logger.setLevel(logging.INFO)
+    root_logger.setLevel(log_level or logging.INFO)

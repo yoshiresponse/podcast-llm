@@ -21,12 +21,14 @@ This allows the rest of the application to work with LLMs in a provider-agnostic
 while still leveraging provider-specific capabilities when beneficial.
 """
 
+import logging
 import pydantic
 from typing import Any, Optional, Union
 
 from langchain_core.language_models.base import LanguageModelInput
 from langchain_core.messages import BaseMessage, SystemMessage
 from langchain_core.output_parsers import PydanticOutputParser, StrOutputParser
+from langchain_core.prompt_values import ChatPromptValue
 from langchain_core.rate_limiters import BaseRateLimiter
 from langchain_core.runnables.base import Runnable
 from langchain_core.runnables.config import RunnableConfig
@@ -34,8 +36,10 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_anthropic import ChatAnthropic
 from langchain_openai import ChatOpenAI
 from langchain_core.rate_limiters import BaseRateLimiter
-
 from podcast_llm.config import PodcastConfig
+
+
+logger = logging.getLogger(__name__)
 
 
 class LLMWrapper(Runnable):
@@ -112,14 +116,21 @@ class LLMWrapper(Runnable):
         - OpenAI/Anthropic: Direct invocation with native structured output support
         - Google: Custom handling for structured output via parser and format instructions
         """
+        logger.debug(f"Invoking LLM with prompt:\n{input.to_string()}")
+
         if self.provider in ('openai', 'anthropic',):
             return self.llm.invoke(input=input, config=config)
         elif self.provider == 'google':
             if self.schema is not None:
                 format_instructions = self.parser.get_format_instructions()
+
+                logger.debug(f"LLM provider is {self.provider} and schema is provided. Adding format instructions to prompt:\n{format_instructions}")
                 messages = input.to_messages()
                 messages[0] = SystemMessage(content=f"{messages[0].content}\n\n{format_instructions}")
-                return self.llm.invoke(input=messages, config=config)
+                prompt = ChatPromptValue(messages=messages)
+                logger.debug(f"Modified prompt:\n{prompt.to_string()}")
+
+                return self.llm.invoke(input=prompt, config=config)
             else:
                 return self.llm.invoke(input=input, config=config)
 
