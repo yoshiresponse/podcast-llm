@@ -1,5 +1,7 @@
 # Podcast-LLM: AI-Powered Podcast Generation
 
+![Tests](https://github.com/evandempsey/podcast-llm/actions/workflows/pytest.yml/badge.svg)
+
 An intelligent system that automatically generates engaging podcast conversations using LLMs and text-to-speech technology.
 
 [View Documentation](https://evandempsey.github.io/podcast-llm/)
