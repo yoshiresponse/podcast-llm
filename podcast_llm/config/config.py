@@ -72,9 +72,9 @@ class PodcastConfig:
     # API Keys
     google_api_key: str
     elevenlabs_api_key: str
-    openai_api_key: str
+    # openai_api_key: str
     tavily_api_key: str
-    anthropic_api_key: str
+    # anthropic_api_key: str
 
     # LLM config
     fast_llm_provider: str
@@ -119,9 +119,9 @@ class PodcastConfig:
         required_env_vars = [
             'GOOGLE_API_KEY',
             'ELEVENLABS_API_KEY', 
-            'OPENAI_API_KEY',
+            # 'OPENAI_API_KEY',
             'TAVILY_API_KEY',
-            'ANTHROPIC_API_KEY'
+            # 'ANTHROPIC_API_KEY'
         ]
         
         config_dict = {}
@@ -139,9 +139,9 @@ class PodcastConfig:
         
         # Set defaults for optional configs
         defaults = {
-            'fast_llm_provider': 'openai',
-            'long_context_llm_provider': 'openai',
-            'embeddings_model': 'openai',
+            'fast_llm_provider': 'google',
+            'long_context_llm_provider': 'google',
+            'embeddings_model': 'google',
             'tts_provider': 'google',
             'tts_settings': {
                 'elevenlabs': {
