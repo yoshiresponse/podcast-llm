@@ -142,12 +142,12 @@ class PodcastConfig:
             'fast_llm_provider': 'google',
             'long_context_llm_provider': 'google',
             'embeddings_model': 'google',
-            'tts_provider': 'google',
+            'tts_provider': 'elevenlabs',
             'tts_settings': {
                 'elevenlabs': {
                     'voice_mapping': {
-                        'Interviewer': 'Chris',
-                        'Interviewee': 'Charlie'
+                        'Interviewer': 'Sarah',
+                        'Interviewee': 'Jessica'
                     },
                     'model': 'eleven_multilingual_v2'
                 },
@@ -159,14 +159,14 @@ class PodcastConfig:
                     'language_code': 'en-US',
                     'effects_profile_id': 'small-bluetooth-speaker-class-device'
                 },
-                'google_multispeaker': {
-                    'voice_mapping': {
-                        'Interviewer': 'R',
-                        'Interviewee': 'S'
-                    },
-                    'language_code': 'en-US',
-                    'effects_profile_id': 'small-bluetooth-speaker-class-device'
-                }
+                # 'google_multispeaker': {
+                #     'voice_mapping': {
+                #         'Interviewer': 'R',
+                #         'Interviewee': 'S'
+                #     },
+                #     'language_code': 'en-US',
+                #     'effects_profile_id': 'small-bluetooth-speaker-class-device'
+                # }
             },
             'output_format': 'mp3',
             'temp_audio_dir': './.temp_audio',

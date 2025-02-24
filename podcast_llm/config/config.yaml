@@ -4,13 +4,13 @@ long_context_llm_provider: google
 embeddings_model: google
 
 # Text-to-Speech Configuration
-tts_provider: google_multispeaker  # Options: 'google', 'elevenlabs', 'google_multispeaker'
+tts_provider: elevenlabs  # Options: 'google', 'elevenlabs', 'google_multispeaker'
 
 tts_settings:
   elevenlabs:
     voice_mapping:
-      Interviewer: Chris
-      Interviewee: Charlie
+      Interviewer: Sarah
+      Interviewee: Jessica
     model: eleven_multilingual_v2
   google:
     voice_mapping:
